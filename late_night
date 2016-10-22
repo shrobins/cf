@@ -1,0 +1,14 @@
+def lateRide(n):
+    hr=(str(n/60))
+    mins=(str(n % 60))
+    
+    time = hr + mins
+    time2 = []
+    
+    def adds(x,y):
+        return x+y
+    
+    for i in time: 
+        time2.append(int(i))
+    
+    return reduce(adds,time2)
