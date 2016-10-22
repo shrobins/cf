@@ -1,0 +1,49 @@
+#this is still failing 
+
+def phoneCall(min1, min2_10, min11, S):
+    first=min1
+    middle=min2_10
+    last = min11
+    money_spent = 0
+    minutes = 0
+
+    while S > money_spent:
+        if S > first:
+            minutes += 1
+            money_spent += first
+            S -= money_spent
+            print "%d minutes gone" % minutes
+            print "You have spent %d dollars, so S now equals %d" % (money_spent, S)
+
+            for i in range(9):
+                if S <= min2_10:
+                    return minutes
+
+                elif S > middle:
+                    minutes += 1
+                    money_spent += middle
+                    S -= middle
+                    print "%d minutes gone" % minutes
+                    print "You have spent %d dollars, so S now equals %d" % (money_spent, S)
+                    if S < min2_10:
+                        print 'THIS SHOULD END HERE'
+                        return minutes
+                    else:
+                        continue
+                else:
+                    return minutes
+
+            if S >= last:
+                while S >= last:
+                    minutes += 1
+                    money_spent += last
+                    S -= last
+                    print "%d minutes gone" % minutes
+                    print "You have spent %d dollars, so S now equals %d" % (money_spent, S)
+            else:
+                return minutes
+
+        else:
+            minutes = 1
+
+        return minutes
